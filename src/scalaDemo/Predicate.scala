@@ -14,20 +14,9 @@ case class BinOp (value1: Expression, value2: Expression, op: String) extends Ex
 
 object Optimizer
 {
-  def optimize(expr: Expression): Expression = expr match {
-    case BinOp(x, Const(0), "+") => optimize(x)
-    case BinOp(x, Const(0), "-") => optimize(x)
-    case BinOp(x, Const(0), "*") => Const(0)
-    case BinOp(x, Const(1), "/") => optimize(x)
-    case other => other
-  }
+  def optimize(expr: Expression): Expression = ???
   
-  def optimize(pred: Predicate): Predicate = pred match {
-    case Not(And(x, y)) => Or(optimize(Not(x)), optimize(Not(y)))
-    case Not(Bool(true)) => Bool(false)
-    case Not(Bool(false)) => Bool(true)
-    case other => other
-  }
+  def optimize(pred: Predicate): Predicate = ???
 }
 
 object Evaluator
